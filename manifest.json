@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "MyChromeExtension",
+  "description": "This extension will save your back from pain.",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
+  },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+   "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "css": ["sweetalert.css"],
+      "js": ["sweetalert.js", "myalert.js"]
+    }
+  ],
+
+  "permissions": [
+   "activeTab",
+   "alarms",
+   "tabs",
+   "http://*/*"
+   ]
+}
